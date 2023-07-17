@@ -45,6 +45,9 @@ p {
   text-align: center;
 }
 </style>
+</head>
+<body>
+<div id="quotes"></div>
 <script>
 var quotes = [
   {
@@ -88,5 +91,30 @@ var quotes = [
     "author": "Ralph Waldo Emerson",
     "date": "(1803-1882)",
     "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4e/Ralph_Waldo_Emerson.jpg/1200px-Ralph_Waldo_Emerson.jpg"
-  },
-  {
+  }
+];
+
+window.onload = function() {
+  var quoteContainer = document.getElementById('quotes');
+  
+  for (var i = 0; i < quotes.length; i++) {
+    var quote = quotes[i];
+    
+    var quoteElement = document.createElement('div');
+    quoteElement.className = 'quote';
+    
+    var quoteTextElement = document.createElement('p');
+    quoteTextElement.innerText = quote.quote;
+    quoteElement.appendChild(quoteTextElement);
+    
+    var authorElement = document.createElement('p');
+    authorElement.className = 'author';
+    authorElement.innerText = quote.author;
+    quoteElement.appendChild(authorElement);
+    
+    quoteContainer.appendChild(quoteElement);
+  }
+};
+</script>
+</body>
+</html>
